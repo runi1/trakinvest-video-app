@@ -20,7 +20,7 @@ const Layout = (props) => (
       <meta httpEquiv='X-UA-Compatible' content='IE=edge' />
        <meta name="viewport" content="initial-scale=1.0, width=device-width" key="viewport" />
         <link rel="stylesheet"href="https://maxcdn.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css"
-  integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS"crossorigin="anonymous"/>
+  integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossOrigin="anonymous"/>
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.1/css/font-awesome.min.css"/>
    <link rel="stylesheet" href="/static/css/styles.css"/>
    </Head>
