@@ -10,6 +10,9 @@ app.prepare()
 .then(() => {
   const server = express()
   
+  server.get('/',(req,res)=>{
+res.json({status:'ok'})
+  })
  server.use('/api', apiRoutes);
  server.get('/movie/:id', (req, res) => {
    // const params = route('/movie/:id')(parse(req.url).pathname);
