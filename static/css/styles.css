@@ -124,3 +124,15 @@ footer .copyright a {
   background-color: #fff;
   padding: 4.5em 0 4.5em 0;
 }
+
+.alert-container {
+border-color: #f5c6cb;
+height: 70vh;
+overflow: auto;
+text-align: center;
+background-color: #fff;
+border: 3px solid transparent;
+padding-top: 7em;
+color: rgba(231, 35, 42, 0.9);
+font-size: 1.4em;
+}

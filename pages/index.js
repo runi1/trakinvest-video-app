@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import Fetch from 'isomorphic-unfetch';
 import { If, Then, Else } from 'react-if';
 import styled, { css } from 'styled-components';
-import { Container, Col, Button, Alert } from 'react-bootstrap';
+import { Container, Col, Button,Alert} from 'react-bootstrap';
 import localStorage from 'local-storage-fallback';
 
 import Layout from "../components/Layout";
@@ -105,6 +105,7 @@ ${props => props.SubHeading && css`
 const StyleSection = styled.section`
 
 `;
+
 class Index extends Component {
   static getInitialProps({ query: { id } }) {
     return { id };
@@ -113,10 +114,10 @@ class Index extends Component {
 
   constructor(props) {
     super(props);
-    let storedFavMovie = [];
     this.state = {
       movie: [],
-      refresh: false
+      refresh: false,
+      loading: true
     };
     this.fetchVideoDetail = this.fetchVideoDetail.bind(this);
     this.markFavorite = this.markFavorite.bind(this);
@@ -130,12 +131,14 @@ class Index extends Component {
       .then(
         (data) => {
           this.setState({
-            movie: data
+            movie: data,
+            loading: false
           });
         },
         (error) => {
           this.setState({
-            movie: []
+            movie: [],
+            loading: false
           });
         }
       )
@@ -156,11 +159,15 @@ class Index extends Component {
 
   renderVideoDetail() {
     const { movie } = this.state;
-
+    const loading = this.state.loading;
     const favoriteMovies = localStorage.getItem('favoriteMovies') ? (localStorage.getItem('favoriteMovies')).split(',') : [];
     // this.setState({ favoriteMovies: favoriteMovies });
+    if(loading){
+      return (<Alert className="alert-container">Loading ......</Alert>);
+    }
+    else if(!loading){
     if (movie.length == 0) {
-      return (<Alert color="danger" variant="danger">No Movies Found !</Alert>);
+      return (<Alert className="alert-container">No Movies Found !</Alert>);
     }
     else {
       let favMovieIcon;
@@ -179,7 +186,7 @@ class Index extends Component {
             <Row noMargin className="row">
               <Col sm={2}>
                 <SizedContainer backgroundImageContainer>
-                  <StyleAction href={movie.homepage} target='_blank'></StyleAction>
+                  <StyleAction href={movie.homepage} target='_blank'> </StyleAction>
                 </SizedContainer>
               </Col>
               <Col sm={10}>
@@ -222,6 +229,7 @@ class Index extends Component {
 
       );
     }
+  }
   }
   render() {
 
