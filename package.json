@@ -6,7 +6,8 @@
   "scripts": {
     "dev": "node ssr-server.js",
     "build": "next build",
-    "start": "next start"
+    "start-next": "next start",
+    "start": "node index.js"
   },
   "keywords": [],
   "author": "",
